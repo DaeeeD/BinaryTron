@@ -1,27 +1,17 @@
 
 import sys
-import PyQt5
+import function
+from PyQt5.QtWidgets import (QApplication, QDialog, QLineEdit, QPushButton)
 
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QLabel
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWidgets import QHBoxLayout
-from PyQt5.QtWidgets import QPushButton
+class Form(QDialog):
 
-app = QApplication(sys.argv)
+    def __init__(self, parent=None):
+        super(Form, self).__init__(parent)
+        self.setWindowTitle("Binary Transotron")
 
-window = QWidget()
-window.setWindowTitle('App Binary')
-window.setGeometry(100, 100, 280, 80)
-window.move(60, 15)
-helloMsg = QLabel('<h1> Selecto-Radio! </h1>', parent=window)
-helloMsg.move(60, 15)
+if __name__== '__main__':
+    app = QApplication(sys.argv)
+    form = Form()
+    form.show()
+    sys.exit(app.exec())
 
-layout = QHBoxLayout()
-layout.addWidget(QPushButton('Left'))
-layout.addWidget(QPushButton('Center'))
-layout.addWidget(QPushButton('Right'))
-window.setLayout(layout)
-
-window.show()
-app.exec()
