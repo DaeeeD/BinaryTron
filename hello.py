@@ -1,6 +1,9 @@
 
+from cgi import test
 import sys
-import binaryTransfo
+from tkinter import Button
+from binaryTransfo import *
+
 from PyQt5.QtWidgets import (QApplication, QDialog, QLineEdit, QPushButton, QVBoxLayout, QWidget)
 
 class Form(QDialog):
@@ -16,6 +19,8 @@ class Form(QDialog):
 
 if __name__== '__main__':
     app = QApplication(sys.argv)
+    Button = QPushButton("Let the magic begin!")
+    Button.clicked.connect(binary_transfrom)
     form = Form()
     form.show()
     sys.exit(app.exec())

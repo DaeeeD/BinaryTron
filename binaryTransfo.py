@@ -1,2 +1,2 @@
-def binary_transfrom(number):
-    print("binary there")
+def binary_transfrom():
+    print("test")
