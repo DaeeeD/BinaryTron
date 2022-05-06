@@ -1,27 +1,28 @@
-
-from cgi import test
 import sys
-from tkinter import Button
-from binaryTransfo import *
 
-from PyQt5.QtWidgets import (QApplication, QDialog, QLineEdit, QPushButton, QVBoxLayout, QWidget)
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialogButtonBox
+from PyQt5.QtWidgets import QFormLayout
+from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QVBoxLayout
 
-class Form(QDialog):
-
+class Dialog(QDialog):
     def __init__(self, parent=None):
-        super(Form, self).__init__(parent)
-        self.setWindowTitle("Binary Transotron")
-        self.edit = QLineEdit("enter the binary: ")
+        super().__init__(parent)
+        self.setWindowTitle('Binarytron')
+        dlgLayout = QVBoxLayout()
+        formLayout = QFormLayout()
+        formLayout.addRow('Numbertransformtron:', QLineEdit())
+        dlgLayout.addLayout(formLayout)
+        btns = QDialogButtonBox()
+        btns.setStandardButtons(
+            QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
+        dlgLayout.addWidget(btns)
+        self.setLayout(dlgLayout)
 
-        layout = QVBoxLayout(self)
-        layout.addWidget(self.edit)
-
-
-if __name__== '__main__':
+if __name__ == '__main__':
     app = QApplication(sys.argv)
-    Button = QPushButton("Let the magic begin!")
-    Button.clicked.connect(binary_transfrom)
-    form = Form()
-    form.show()
-    sys.exit(app.exec())
-
+    dlg = Dialog()
+    dlg.show()
+    sys.exit(app.exec_())
