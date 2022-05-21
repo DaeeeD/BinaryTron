@@ -1,2 +1,4 @@
-def binary_transfrom():
-    print("test")
+
+def binary_transfrom(userinput):
+    transfo = bin(userinput)
+    return transfo
